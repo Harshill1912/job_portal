@@ -20,6 +20,10 @@ if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir);
 app.use('/uploads', express.static(uploadsDir));
 
 // routes
+app.get('/', (req, res) => {
+  res.send('Job Application Portal API is running! Use /api/... endpoints in Postman to check');
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/jobs', jobRoutes);
